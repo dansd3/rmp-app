@@ -1,0 +1,93 @@
+  [
+    {
+      "id": 1,
+      "name": "Панорама Оборона Севастополя 1854-1855 гг",
+      "description": "Крупнейший памятник Крымской войны с гигантским художественным полотном и мемориальным комплексом, посвященный 349-дневной обороне города",
+      "working_hours": "Временно не работает",
+      "adress": "микрорайон Гоголя",
+      "images": [
+        "https://avatars.mds.yandex.net/get-altay/1524599/2a0000016ae307c312a03d8aa051a190c5c6/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/14312158/2a000001933bbc006291250c820eee0b3b27/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/5257938/2a0000017bf41f4b517302c6a7b08760446d/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/4971637/2a0000017e39729341cf36db518e301e6b39/XXXL"
+      ],
+      "latitude": 44.595490, 
+      "longitude": 33.523524
+    },
+    {
+      "id": 2,
+      "name": "Балаклавский подземный музейный комплекс",
+      "description": "Уникальный подземный объект времен Холодной войны - бывшая секретная база подводных лодок в толще горы Таврос",
+      "working_hours": "09:00–19:00",
+      "adress": "Таврическая набережная, 11, Балаклава",
+      "images": [
+        "https://avatars.mds.yandex.net/get-altay/4412404/2a0000017a13ae6199ae7be15eafa8e7cd2f/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/1633254/2a00000168e650f5234018d1c3c4879ec6f5/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/1608507/2a0000016711b96bd3c9cbc637f43c7898b4/XXXL"
+      ],
+      "latitude": 44.501098, 
+      "longitude": 33.596509
+    },
+    {
+      "id": 3,
+      "name": "Михайловская батарея",
+      "description": "Мощное фортификационное сооружение XIX века на северном берегу Севастопольской бухты, ныне - филиал Военно-исторического музея",
+      "working_hours": "09:00–18:00",
+      "adress": "улица Громова, 35",
+      "images": [
+        "https://avatars.mds.yandex.net/get-altay/1363018/2a00000164883cfd814d5beeb413bb69f7cd/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/216588/2a0000015b176acd9a485a3d88672d77a67b/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/374295/2a0000015b176afa64885093f05ef01b6067/XXXL"
+      ],
+      "latitude": 44.627784, 
+      "longitude": 33.525870
+    },
+    {
+      "id": 4,
+      "name": "Херсонес Таврический",
+      "description": "Древнегреческий город-государство V в. до н.э., объект ЮНЕСКО с сохранившимися античными улицами, театром и базиликами",
+      "working_hours": "09:00–19:00",
+      "adress": "Древняя ул., 1",
+      "images": [
+        "https://avatars.mds.yandex.net/get-altay/1871013/2a0000016ae2fd7a2f48aafcf901c106d894/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/1868686/2a0000016ae2fd814b0ab7c12329525f7547/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/10095165/2a0000019262dd21e6eb2e214ba2963ec801/XXXL"
+
+      ],
+      "latitude": 44.610959,
+      "longitude": 33.492960
+    },
+    {
+      "id": 5,
+      "name": "35-я береговая батарея",
+      "description": "Мемориальный комплекс на месте последнего рубежа обороны Севастополя в 1942 году с подземными казематами и Пантеоном памяти",
+      "working_hours": "10:00–18:00",
+      "adress": "микрорайон Казачья Бухта",
+      "images": [
+        "https://avatars.mds.yandex.net/get-altay/1525683/2a0000016ae321721e04de8aa1a49a1b0a2a/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/788991/2a000001875da9f6d44c8d649561917426b3/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/5235091/2a000001824ebd999ea31cfe01cbc6ca7fd3/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/1524599/2a0000016ae3217f4bba5c7f939c437c94fe/XXXL"
+
+      ],
+      "latitude": 44.559167, 
+      "longitude": 33.406999
+    },
+    {
+      "id": 6,
+      "name": "Парк Патриот",
+      "description": "Современный военно-исторический парк с экспозицией боевой техники, реконструкцией полевого лагеря и интерактивными экскурсиями",
+      "working_hours": "10:00–17:00",
+      "adress": "Аэродромный пер., 14",
+      "images": [
+        "https://avatars.mds.yandex.net/get-altay/10238647/2a000001904a8fb6cf8ad7383c4086422a15/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/6010116/2a00000189b1ffcaad68d3da91372853fc62/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/9827107/2a00000189b2003b95467080a00f847c9dbd/XXXL",
+        "https://avatars.mds.yandex.net/get-altay/9837233/2a00000189b5836d7090c1b9a29063243762/XXXL"
+
+      ],
+      "latitude": 44.576643, 
+      "longitude": 33.496797 
+    }
+  ]
+  
