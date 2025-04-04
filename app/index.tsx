@@ -1,20 +1,20 @@
-import { useRouter } from 'expo-router';
-import { useEffect } from 'react';
-import { getSession } from '../models/storage';
+import { useRouter } from 'expo-router'
+import { useEffect } from 'react'
+import { getSession } from '../models/storage'
 
 export default function Index() {
-  const router = useRouter();
+  const router = useRouter()
   useEffect(() => {
     const checkSession = async () => {
-      const isSessionActive = await getSession();
+      const isSessionActive = await getSession()
       if (isSessionActive) {
-        router.replace('/home');
+        router.replace('/home')
       } else {
-        router.replace('/login');
+        router.replace('/login')
       }
-    };
-    checkSession();
-  }, [router]);
+    }
+    checkSession()
+  }, [router])
 
-  return null; 
+  return null
 }

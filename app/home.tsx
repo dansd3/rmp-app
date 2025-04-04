@@ -1,14 +1,13 @@
-import { View, StatusBar, TouchableOpacity, Text, FlatList } from "react-native";
-import MapView, { Marker, Polyline, Region } from "react-native-maps";
-import { homeViewModel } from "../viewmodels/homeViewModel";
-import styles from "../styles/home";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import Entypo from '@expo/vector-icons/Entypo';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, StatusBar, TouchableOpacity, Text, FlatList } from 'react-native'
+import MapView, { Marker, Polyline, Region } from 'react-native-maps'
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import Entypo from '@expo/vector-icons/Entypo'
+import Ionicons from '@expo/vector-icons/Ionicons'
+import { HomeViewModel } from '../viewmodels/homeViewModel'
+import styles from '../styles/home'
 
 export default function HomeScreen() {
-
   const {
     mapRef,
     updateCurrentLocation,
@@ -25,97 +24,165 @@ export default function HomeScreen() {
     logoutFunc,
     showUser,
     setshowUser,
-    username,
-    redirectPlace
-  } = homeViewModel();
+    redirectPlace,
+  } = HomeViewModel()
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
 
       <MapView
         style={styles.map}
         showsCompass={false}
-        customMapStyle={[{
-          featureType: 'poi',
-          stylers: [{ visibility: 'off' }],
-        },
-        {
-          featureType: 'poi.attraction',
-          stylers: [{ visibility: 'on' }],
-        },]}
+        customMapStyle={[
+          {
+            featureType: 'poi',
+            stylers: [{ visibility: 'off' }],
+          },
+          {
+            featureType: 'poi.attraction',
+            stylers: [{ visibility: 'on' }],
+          },
+        ]}
         ref={mapRef}
         initialRegion={{
-          latitude: 44.595490,
+          latitude: 44.59549,
           longitude: 33.523524,
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
         }}
-        onRegionChangeComplete={(region: Region) => updateCurrentLocation(region.latitude, region.longitude)}
+        onRegionChangeComplete={(region: Region) =>
+          updateCurrentLocation(region.latitude, region.longitude)
+        }
         onPoiClick={(event) => {
-          const { coordinate } = event.nativeEvent;
-          centerPlace(coordinate.latitude, coordinate.longitude);
+          const { coordinate } = event.nativeEvent
+          centerPlace(coordinate.latitude, coordinate.longitude)
         }}
       >
-        {routeCoords.length > 0 && (<Polyline coordinates={routeCoords} strokeWidth={4} strokeColor="blue" />)}
-        {startPoint && <Marker coordinate={startPoint} title="Начало маршрута" pinColor="green" />}
-        {endPoint && <Marker coordinate={endPoint} title="Конец маршрута" pinColor="red" />}
+        {routeCoords.length > 0 && (
+          <Polyline
+            coordinates={routeCoords}
+            strokeWidth={4}
+            strokeColor="blue"
+          />
+        )}
+        {startPoint && (
+          <Marker
+            coordinate={startPoint}
+            title="Начало маршрута"
+            pinColor="green"
+          />
+        )}
+        {endPoint && (
+          <Marker
+            coordinate={endPoint}
+            title="Конец маршрута"
+            pinColor="red"
+          />
+        )}
       </MapView>
 
-      <TouchableOpacity style={styles.menuButton} onPress={() => setShowList(!showList)}>
+      <TouchableOpacity
+        style={styles.menuButton}
+        onPress={() => setShowList(!showList)}
+      >
         <Text style={styles.menuButtonText}>Достопримечательности</Text>
-        <Ionicons name="chevron-expand" size={24} color="black" />
+        <Ionicons
+          name="chevron-expand"
+          size={24}
+          color="black"
+        />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.userButton} onPress={() => setshowUser(!showUser)}>
-        <FontAwesome5 name="user" size={24} color="black" />
+      <TouchableOpacity
+        style={styles.userButton}
+        onPress={() => setshowUser(!showUser)}
+      >
+        <FontAwesome5
+          name="user"
+          size={24}
+          color="black"
+        />
       </TouchableOpacity>
 
       {showUser && (
         <View style={styles.userInfoBox}>
           <TouchableOpacity onPress={() => logoutFunc()}>
-            <MaterialIcons name="exit-to-app" size={24} color="red" />
+            <MaterialIcons
+              name="exit-to-app"
+              size={24}
+              color="red"
+            />
           </TouchableOpacity>
-
         </View>
       )}
+
       {showList && (
         <View style={styles.listContainer}>
-         <FlatList
+          <FlatList
             data={sortedPlaces}
             showsVerticalScrollIndicator={false}
-            keyExtractor={item => item.id.toString()}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <View style={styles.listItem}>
-                  <TouchableOpacity
-                    style={styles.placeInfo}
-                    onPress={() => redirectPlace(item)}
+                <TouchableOpacity
+                  style={styles.placeInfo}
+                  onPress={() => redirectPlace(item)}
+                >
+                  <Text
+                    style={styles.placeName}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
                   >
-                    <Text style={styles.placeName} numberOfLines={1} ellipsizeMode="tail">
-                      {item.name}
+                    {item.name}
+                  </Text>
+                </TouchableOpacity>
+
+                <View style={styles.buttonsContainer}>
+                  <TouchableOpacity onPress={() => setFavorite(item)}>
+                    <Text style={{ fontSize: 22 }}>
+                      {favorites.includes(item.id) ? (
+                        <Entypo
+                          name="heart"
+                          size={24}
+                          color="red"
+                        />
+                      ) : (
+                        <Entypo
+                          name="heart-outlined"
+                          size={24}
+                          color="black"
+                        />
+                      )}
                     </Text>
                   </TouchableOpacity>
 
-                  <View style={styles.buttonsContainer}>
-                    <TouchableOpacity onPress={() => setFavorite(item)}>
-                      <Text style={{ fontSize: 22 }}>
-                        {favorites.includes(item.id) ? <Entypo name="heart" size={24} color="red" /> : <Entypo name="heart-outlined" size={24} color="black" />
-                        }
-                      </Text>
-                    </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => centerPlace(item.latitude, item.longitude)}
+                  >
+                    <Entypo
+                      name="location-pin"
+                      size={24}
+                      color="black"
+                    />
+                  </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => centerPlace(item.latitude, item.longitude)}>
-                      <Entypo name="location-pin" size={24} color="black" />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => fetchRoute(item)}>
-                      <FontAwesome5 name="route" size={24} color="black" />
-                    </TouchableOpacity>
-                  </View>
+                  <TouchableOpacity onPress={() => fetchRoute(item)}>
+                    <FontAwesome5
+                      name="route"
+                      size={24}
+                      color="black"
+                    />
+                  </TouchableOpacity>
                 </View>
+              </View>
             )}
           />
         </View>
       )}
     </View>
-  );
+  )
 }

@@ -1,32 +1,43 @@
-import React from "react";
-import { View, Text, FlatList, TouchableOpacity, StatusBar, ScrollView } from "react-native";
-import MapView from "react-native-maps";
-import { placeViewModel } from "../viewmodels/placeViewModel";
-import Ionicons from '@expo/vector-icons/Ionicons';
-import styles from "../styles/place";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Image } from 'expo-image';
-export default function PlaceDetailsScreen() {
+import React from 'react'
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  StatusBar,
+  ScrollView,
+} from 'react-native'
+import MapView from 'react-native-maps'
+import Ionicons from '@expo/vector-icons/Ionicons'
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
+import { Image } from 'expo-image'
+import { PlaceViewModel } from '../viewmodels/placeViewModel'
+import styles from '../styles/place'
 
-  const {
-    placeData,
-    returnHome
-  } = placeViewModel();
+export default function PlaceDetailsScreen() {
+  const { placeData, returnHome } = PlaceViewModel()
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-      
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
+
       <View style={styles.header}>
         <TouchableOpacity onPress={returnHome}>
-          <Ionicons name="chevron-back-outline" size={24} color="black" />
+          <Ionicons
+            name="chevron-back-outline"
+            size={24}
+            color="black"
+          />
         </TouchableOpacity>
         <Text style={styles.title}>{placeData.name}</Text>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-
         <View style={styles.section}>
           <FlatList
             horizontal
@@ -42,7 +53,6 @@ export default function PlaceDetailsScreen() {
                 />
               </View>
             )}
-            
           />
         </View>
 
@@ -50,10 +60,24 @@ export default function PlaceDetailsScreen() {
           <Text style={styles.description}>{placeData.description}</Text>
         </View>
         <View style={styles.section}>
-          <Text style={styles.description}><MaterialCommunityIcons name="timetable" size={24} color="black" /> {placeData.working_hours}</Text>
+          <Text style={styles.description}>
+            <MaterialCommunityIcons
+              name="timetable"
+              size={24}
+              color="black"
+            />{' '}
+            {placeData.working_hours}
+          </Text>
         </View>
         <View style={styles.section}>
-          <Text style={styles.description}><FontAwesome5 name="map-marked-alt" size={24} color="black" /> {placeData.adress}</Text>
+          <Text style={styles.description}>
+            <FontAwesome5
+              name="map-marked-alt"
+              size={24}
+              color="black"
+            />{' '}
+            {placeData.adress}
+          </Text>
         </View>
 
         <View style={styles.section}>
@@ -69,7 +93,5 @@ export default function PlaceDetailsScreen() {
         </View>
       </ScrollView>
     </View>
-
-
-  );
+  )
 }

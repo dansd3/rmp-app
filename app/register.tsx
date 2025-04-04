@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native';
-import Checkbox from 'expo-checkbox';
-import { registerViewModel } from '../viewmodels/registerViewModel';
-import styles from "../styles/register";
+import React from 'react'
+import { View, Text, TouchableOpacity, StatusBar } from 'react-native'
+import Checkbox from 'expo-checkbox'
+import { RegisterViewModel } from '../viewmodels/registerViewModel'
+import styles from '../styles/register'
+import CustomInput from '../customcomponents/customInput'
 
 export default function RegisterScreen() {
   const {
@@ -17,51 +18,58 @@ export default function RegisterScreen() {
     agree,
     setAgree,
     registerFunc,
-    redirectLogin
-  } = registerViewModel();
+    redirectLogin,
+  } = RegisterViewModel()
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
 
       <Text style={styles.title}>Регистрация</Text>
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Имя пользователя"
         value={username}
-        onChangeText={setUsername}
+        onChange={setUsername}
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="E-mail"
         value={email}
-        onChangeText={setEmail}
+        onChange={setEmail}
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Пароль"
         value={password}
-        onChangeText={setPassword}
-        secureTextEntry
+        onChange={setPassword}
+        isPassword
+        isValid={password.length >= 6}
       />
-      <TextInput
-        style={styles.input}
+      <CustomInput
         placeholder="Повторите пароль"
         value={confirmPassword}
-        onChangeText={setConfirmPassword}
-        secureTextEntry
+        onChange={setConfirmPassword}
+        isPassword
+        isValid={confirmPassword === password}
       />
-
       <View style={styles.checkboxContainer}>
-        <Checkbox value={agree} onValueChange={setAgree} />
+        <Checkbox
+          value={agree}
+          onValueChange={setAgree}
+        />
         <Text style={styles.checkboxLabel}>Согласен с правилами</Text>
       </View>
       <TouchableOpacity onPress={redirectLogin}>
         <Text style={styles.linkText}>Вернуться к входу</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.registerButton} onPress={registerFunc}>
+      <TouchableOpacity
+        style={styles.registerButton}
+        onPress={registerFunc}
+      >
         <Text style={styles.registerButtonText}>Зарегистрироваться</Text>
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}

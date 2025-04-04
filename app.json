@@ -15,7 +15,7 @@
       "permissions": ["android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"],
       "config": {
         "googleMaps": {
-          "apiKey": "apikey"
+          "apiKey": "googleApikey"
         }
       },
       "adaptiveIcon": {
@@ -52,7 +52,7 @@
       "eas": {
         "projectId": "projid"
       },
-      "gisApiKey": "apikiy"
+      "gisApiKey": "2gisApiKey"
     
     }
   }
